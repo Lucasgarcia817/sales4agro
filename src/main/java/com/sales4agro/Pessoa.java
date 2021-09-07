@@ -28,7 +28,7 @@ public class Pessoa implements Serializable{
     private String nomeFantasia;
 
     @Column(name = "ativo")
-    private String ativo;
+    private Boolean ativo;
 
     @Column(name = "bairro")
     private String bairro;
@@ -76,7 +76,7 @@ public class Pessoa implements Serializable{
 
     }
 
-    public Pessoa(Integer id, String tipoUsuario, String tipoPessoa, String nomeSocial, String nomeFantasia, String ativo, String bairro, String cidade, Integer uf, Integer pais, String cep, String complementoEndereco, String logradouroEndereco, String numeroEndereco, Date dataCadastro, Date dataNascimento, String email, String numeroFixo, String numeroCelular, String senha) {
+    public Pessoa(Integer id, String tipoUsuario, String tipoPessoa, String nomeSocial, String nomeFantasia, Boolean ativo, String bairro, String cidade, Integer uf, Integer pais, String cep, String complementoEndereco, String logradouroEndereco, String numeroEndereco, Date dataCadastro, Date dataNascimento, String email, String numeroFixo, String numeroCelular, String senha) {
         this.id = id;
         this.tipoUsuario = tipoUsuario;
         this.tipoPessoa = tipoPessoa;
@@ -143,11 +143,11 @@ public class Pessoa implements Serializable{
         this.nomeFantasia = nomeFantasia;
     }
 
-    public String getAtivo() {
+    public Boolean getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(String ativo) {
+    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 

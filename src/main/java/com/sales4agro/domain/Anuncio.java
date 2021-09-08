@@ -13,7 +13,7 @@ public class Anuncio implements Serializable {
     private UUID id;
 
     @ManyToOne
-    private CarrinhoDeCompras carrinhoDeCompras;
+    private Carrinho carrinho;
 
     @Column(name="título")
     private String titulo;
@@ -58,9 +58,9 @@ public class Anuncio implements Serializable {
 
     }
 
-    public Anuncio(UUID id, CarrinhoDeCompras carrinhoDeCompras, String titulo, String usuarioAnuncioId, String tipoAnuncio, String descricao, String preco, String imagem, String email, String video, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data, UUID produtoId, UUID servicoId) {
+    public Anuncio(UUID id, Carrinho carrinho, String titulo, String usuarioAnuncioId, String tipoAnuncio, String descricao, String preco, String imagem, String email, String video, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data, UUID produtoId, UUID servicoId) {
         this.id = id;
-        this.carrinhoDeCompras = carrinhoDeCompras;
+        this.carrinho = carrinho;
         this.titulo = titulo;
         this.usuarioAnuncioId = usuarioAnuncioId;
         this.tipoAnuncio = tipoAnuncio;
@@ -76,12 +76,12 @@ public class Anuncio implements Serializable {
         this.servicoId = servicoId;
     }
 
-    public CarrinhoDeCompras getCarrinhoDeCompras() {
-        return carrinhoDeCompras;
+    public Carrinho getCarrinho() {
+        return carrinho;
     }
 
-    public void setCarrinhoDeCompras(CarrinhoDeCompras carrinhoDeCompras) {
-        this.carrinhoDeCompras = carrinhoDeCompras;
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
     }
 
     public UUID getProdutoId() {

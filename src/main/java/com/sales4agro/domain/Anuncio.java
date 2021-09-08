@@ -48,11 +48,9 @@ public class Anuncio implements Serializable {
     @Column(name="data")
     private Date data;
 
-    @OneToOne
     @Column(name = "produtoId")
     private UUID produtoId;
 
-    @OneToOne
     @Column(name = "servicoId")
     private UUID servicoId;
 

@@ -13,7 +13,7 @@ public class CarrinhoDeCompras {
     private UUID carrinhoCompraId;
 
     @Column(name = "anuncioId")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carrinhodecompras")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "CarrinhoDeCompras")
     private List<Anuncio> anuncios = new ArrayList<>();
 
     public CarrinhoDeCompras(){

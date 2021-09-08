@@ -1,30 +1,21 @@
-package com.sales4agro;
-
-import java.io.Serializable;
-import java.util.Date;
+package com.sales4agro.domain;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.UUID;
 
 @Entity
-@Table(name = "Pessoa")
-public class Pessoa implements Serializable{
-    private static final long serialVersionUID = 1L;
-
+@Table(name = "Cliente")
+public class Cliente implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    @Column(name = "tipo usuario")
-    private String tipoUsuario;
-
-    @Column(name = "tipo pessoa")
-    private String tipoPessoa;
-
-    @Column(name = "nome social")
+    @Column(name = "nome_social")
     private String nomeSocial;
 
-    @Column(name = "nome fantasia")
+    @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
     @Column(name = "ativo")
@@ -45,41 +36,38 @@ public class Pessoa implements Serializable{
     @Column(name = "CEP")
     private String cep;
 
-    @Column(name = "complemento endereço")
+    @Column(name = "complemento_endereço")
     private String complementoEndereco;
 
-    @Column(name = "logradouro endereço")
+    @Column(name = "logradouro_endereço")
     private String logradouroEndereco;
 
-    @Column(name = "número endereço")
+    @Column(name = "número_endereço")
     private String numeroEndereco;
 
-    @Column(name = "data cadastro")
+    @Column(name = "data_cadastro")
     private Date dataCadastro;
 
-    @Column(name = "data nascimento")
+    @Column(name = "data_nascimento")
     private Date dataNascimento;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "número telefone fixo")
+    @Column(name = "número_telefone_fixo")
     private String numeroFixo;
 
-    @Column(name = "número telefone celular")
+    @Column(name = "número_telefone_celular")
     private String numeroCelular;
 
     @Column(name = "senha")
     private String senha;
 
-    public Pessoa(){
+    public Cliente(){
 
     }
 
-    public Pessoa(Integer id, String tipoUsuario, String tipoPessoa, String nomeSocial, String nomeFantasia, Boolean ativo, String bairro, String cidade, Integer uf, Integer pais, String cep, String complementoEndereco, String logradouroEndereco, String numeroEndereco, Date dataCadastro, Date dataNascimento, String email, String numeroFixo, String numeroCelular, String senha) {
-        this.id = id;
-        this.tipoUsuario = tipoUsuario;
-        this.tipoPessoa = tipoPessoa;
+    public Cliente(String nomeSocial, String nomeFantasia, Boolean ativo, String bairro, String cidade, Integer uf, Integer pais, String cep, String complementoEndereco, String logradouroEndereco, String numeroEndereco, Date dataCadastro, Date dataNascimento, String email, String numeroFixo, String numeroCelular, String senha) {
         this.nomeSocial = nomeSocial;
         this.nomeFantasia = nomeFantasia;
         this.ativo = ativo;
@@ -99,32 +87,12 @@ public class Pessoa implements Serializable{
         this.senha = senha;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getTipoPessoa() {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa(String tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
     }
 
     public String getNomeSocial() {
@@ -262,4 +230,6 @@ public class Pessoa implements Serializable{
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }
+

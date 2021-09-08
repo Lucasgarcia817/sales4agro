@@ -1,18 +1,15 @@
-package com.sales4agro;
+package com.sales4agro.domain;
 
-import com.sun.xml.internal.ws.developer.Serialization;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
-@Table(name="Serviços")
+@Table(name="Servicos")
 public class Servicos implements Serializable {
-    @Serialization
-    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name = "descrição")
     private String descricao;
@@ -26,10 +23,8 @@ public class Servicos implements Serializable {
     @Column(name = "preço")
     private String preco;
 
-    @Column(name = "tipo serviço")
+    @Column(name = "tipo_serviço")
     private String tipoServico;
-    @Id
-    private Long id;
 
     public Servicos(String descricao, String video, String imagem, String preco, String tipoServico) {
         this.descricao = descricao;
@@ -43,9 +38,6 @@ public class Servicos implements Serializable {
 
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -87,11 +79,11 @@ public class Servicos implements Serializable {
         this.tipoServico = tipoServico;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 }

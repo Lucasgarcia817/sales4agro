@@ -1,19 +1,18 @@
-package com.sales4agro;
+package com.sales4agro.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name="Departamentos produtos")
+@Table(name="Departamentos")
 public class Departamentos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String departamentoId;
+    private Integer departamentoId;
 
     @Column(name = "nome")
     private String nome;
 
-    public Departamentos(String departamentoId, String nome) {
+    public Departamentos(int departamentoId, String nome) {
         this.departamentoId = departamentoId;
         this.nome = nome;
     }
@@ -22,11 +21,11 @@ public class Departamentos {
 
     }
 
-    public String getDepartamentoId() {
+    public int getDepartamentoId() {
         return departamentoId;
     }
 
-    public void setDepartamentoId(String departamentoId) {
+    public void setDepartamentoId(Integer departamentoId) {
         this.departamentoId = departamentoId;
     }
 

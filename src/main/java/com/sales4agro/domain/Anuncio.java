@@ -1,24 +1,24 @@
-package com.sales4agro;
-
-import com.sun.xml.internal.ws.developer.Serialization;
+package com.sales4agro.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name = "Anuncio")
 public class Anuncio implements Serializable {
-    @Serialization
-    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(name="título")
     private String titulo;
 
-    @Column(name="usuarioAnuncioId")
+    @Column(name="usuario_anuncio_id")
     private String usuarioAnuncioId ;
 
-    @Column(name="tipoAnuncio")
+    @Column(name="tipo_anuncio")
     private String tipoAnuncio;
 
     @Column(name="descrição")
@@ -36,16 +36,14 @@ public class Anuncio implements Serializable {
     @Column(name="vídeo")
     private String video;
 
-    @Column(name="numeroTelefoneFixo")
+    @Column(name="numero_telefone_fixo")
     private String numeroTelefoneFixo;
 
-    @Column(name="numeroTelefoneCelular")
+    @Column(name="numero_telefone_celular")
     private String numeroTelefoneCelular;
 
     @Column(name="data")
     private Date data;
-    @Id
-    private Long id;
 
     public Anuncio() {
 
@@ -63,10 +61,6 @@ public class Anuncio implements Serializable {
         this.numeroTelefoneFixo = numeroTelefoneFixo;
         this.numeroTelefoneCelular = numeroTelefoneCelular;
         this.data = data;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public String getTitulo() {
@@ -157,11 +151,11 @@ public class Anuncio implements Serializable {
         this.data = data;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 }

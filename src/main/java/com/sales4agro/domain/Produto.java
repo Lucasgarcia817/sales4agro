@@ -11,6 +11,12 @@ public class Produto implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(name = "quantidade")
+    private Integer quantidade;
+
+    @Column(name = "unidade")
+    private String unidade;
+
     @Column(name = "descrição")
     private String descricao;
 
@@ -30,12 +36,31 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(String descricao, String tipoProduto, String video, String imagem, String preco) {
+    public Produto(UUID id, Integer quantidade, String unidade, String descricao, String tipoProduto, String video, String imagem, String preco) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.unidade = unidade;
         this.descricao = descricao;
         this.tipoProduto = tipoProduto;
         this.video = video;
         this.imagem = imagem;
         this.preco = preco;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
     }
 
     public String getDescricao() {

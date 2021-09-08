@@ -12,11 +12,14 @@ public class Anuncio implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @ManyToOne
+    private CarrinhoDeCompras carrinhoDeCompras;
+
     @Column(name="título")
     private String titulo;
 
     @Column(name="usuario_anuncio_id")
-    private String usuarioAnuncioId ;
+    private String usuarioAnuncioId;
 
     @Column(name="tipo_anuncio")
     private String tipoAnuncio;
@@ -45,11 +48,21 @@ public class Anuncio implements Serializable {
     @Column(name="data")
     private Date data;
 
+    @OneToOne
+    @Column(name = "produtoId")
+    private UUID produtoId;
+
+    @OneToOne
+    @Column(name = "servicoId")
+    private UUID servicoId;
+
     public Anuncio() {
 
     }
 
-    public Anuncio(String titulo, String usuarioAnuncioId, String tipoAnuncio, String descricao, String preco, String imagem, String email, String video, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data) {
+    public Anuncio(UUID id, CarrinhoDeCompras carrinhoDeCompras, String titulo, String usuarioAnuncioId, String tipoAnuncio, String descricao, String preco, String imagem, String email, String video, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data, UUID produtoId, UUID servicoId) {
+        this.id = id;
+        this.carrinhoDeCompras = carrinhoDeCompras;
         this.titulo = titulo;
         this.usuarioAnuncioId = usuarioAnuncioId;
         this.tipoAnuncio = tipoAnuncio;
@@ -61,6 +74,32 @@ public class Anuncio implements Serializable {
         this.numeroTelefoneFixo = numeroTelefoneFixo;
         this.numeroTelefoneCelular = numeroTelefoneCelular;
         this.data = data;
+        this.produtoId = produtoId;
+        this.servicoId = servicoId;
+    }
+
+    public CarrinhoDeCompras getCarrinhoDeCompras() {
+        return carrinhoDeCompras;
+    }
+
+    public void setCarrinhoDeCompras(CarrinhoDeCompras carrinhoDeCompras) {
+        this.carrinhoDeCompras = carrinhoDeCompras;
+    }
+
+    public UUID getProdutoId() {
+        return produtoId;
+    }
+
+    public void setProdutoId(UUID produtoId) {
+        this.produtoId = produtoId;
+    }
+
+    public UUID getServicoId() {
+        return servicoId;
+    }
+
+    public void setServicoId(UUID servicoId) {
+        this.servicoId = servicoId;
     }
 
     public String getTitulo() {

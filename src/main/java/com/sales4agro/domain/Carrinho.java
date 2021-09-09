@@ -6,38 +6,39 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Carrinho")
+@Table(name = "carrinho")
 public class Carrinho{
     @Id
-    @Column(name = "carrinhoCompraId")
-    private UUID carrinhoCompraId;
+    @Column(name = "id")
+    private UUID id;
 
-    @Column(name = "anuncioId")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carrinhodecompras")
-    private List<Anuncio> anuncios = new ArrayList<>();
+    @OneToMany
+    @JoinColumn(name = "anuncio_id")
+    private List<Anuncio> anuncio;
 
     public Carrinho(){
 
     }
 
-    public Carrinho(UUID carrinhoCompraId, List<Anuncio> anuncios) {
-        this.carrinhoCompraId = carrinhoCompraId;
-        this.anuncios = anuncios;
+    public Carrinho(UUID id, List<Anuncio> anuncio) {
+        this.id = id;
+        this.anuncio = anuncio;
     }
 
-    public UUID getCarrinhoCompraId() {
-        return carrinhoCompraId;
+    public List<Anuncio> getAnuncio() {
+        return anuncio;
     }
 
-    public void setCarrinhoCompraId(UUID carrinhoCompraId) {
-        this.carrinhoCompraId = carrinhoCompraId;
+    public void setAnuncio(List<Anuncio> anuncio) {
+        this.anuncio = anuncio;
     }
 
-    public List<Anuncio> getAnuncios() {
-        return anuncios;
+    public UUID getId() {
+        return id;
     }
 
-    public void setAnuncios(List<Anuncio> anuncios) {
-        this.anuncios = anuncios;
+    public void setId(UUID id) {
+        this.id = id;
     }
+
 }

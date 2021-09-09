@@ -10,10 +10,7 @@ import java.util.UUID;
 public class Anuncio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    @ManyToOne
-    private Carrinho carrinho;
+    private UUID anuncio_id;
 
     @Column(name="título")
     private String titulo;
@@ -24,20 +21,8 @@ public class Anuncio implements Serializable {
     @Column(name="tipo_anuncio")
     private String tipoAnuncio;
 
-    @Column(name="descrição")
-    private String descricao;
-
-    @Column(name="preço")
-    private String preco;
-
-    @Column(name="imagem")
-    private String imagem;
-
     @Column(name="email")
     private String email;
-
-    @Column(name="vídeo")
-    private String video;
 
     @Column(name="numero_telefone_fixo")
     private String numeroTelefoneFixo;
@@ -58,30 +43,17 @@ public class Anuncio implements Serializable {
 
     }
 
-    public Anuncio(UUID id, Carrinho carrinho, String titulo, String usuarioAnuncioId, String tipoAnuncio, String descricao, String preco, String imagem, String email, String video, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data, UUID produtoId, UUID servicoId) {
-        this.id = id;
-        this.carrinho = carrinho;
+    public Anuncio(UUID anuncio_id, String titulo, String usuarioAnuncioId, String tipoAnuncio, String email, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data, UUID produtoId, UUID servicoId) {
+        this.anuncio_id = anuncio_id;
         this.titulo = titulo;
         this.usuarioAnuncioId = usuarioAnuncioId;
         this.tipoAnuncio = tipoAnuncio;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.imagem = imagem;
         this.email = email;
-        this.video = video;
         this.numeroTelefoneFixo = numeroTelefoneFixo;
         this.numeroTelefoneCelular = numeroTelefoneCelular;
         this.data = data;
         this.produtoId = produtoId;
         this.servicoId = servicoId;
-    }
-
-    public Carrinho getCarrinho() {
-        return carrinho;
-    }
-
-    public void setCarrinho(Carrinho carrinho) {
-        this.carrinho = carrinho;
     }
 
     public UUID getProdutoId() {
@@ -124,44 +96,12 @@ public class Anuncio implements Serializable {
         this.tipoAnuncio = tipoAnuncio;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getPreco() {
-        return preco;
-    }
-
-    public void setPreco(String preco) {
-        this.preco = preco;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
     }
 
     public String getNumeroTelefoneFixo() {
@@ -188,11 +128,11 @@ public class Anuncio implements Serializable {
         this.data = data;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setAnuncio_id(UUID anuncio_id) {
+        this.anuncio_id = anuncio_id;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getAnuncio_id() {
+        return anuncio_id;
     }
 }

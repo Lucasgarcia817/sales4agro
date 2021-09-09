@@ -2,6 +2,7 @@ package com.sales4agro.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,6 +33,9 @@ public class Produto implements Serializable {
     @Column(name = "preço")
     private String preco;
 
+    @OneToMany
+    @JoinColumn(name = "produto_id")
+    private List<Anuncio> anuncios;
 
     public Produto() {
     }

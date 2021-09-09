@@ -1,7 +1,6 @@
 package com.sales4agro.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,8 +12,8 @@ public class Carrinho{
     private UUID id;
 
     @OneToMany
-    @JoinColumn(name = "anuncio_id")
-    private List<Anuncio> anuncio;
+    @JoinColumn(name = "carrinho_id")
+    private List<Anuncio> anuncios;
 
     public Carrinho(){
 
@@ -22,15 +21,15 @@ public class Carrinho{
 
     public Carrinho(UUID id, List<Anuncio> anuncio) {
         this.id = id;
-        this.anuncio = anuncio;
+        this.anuncios = anuncio;
     }
 
-    public List<Anuncio> getAnuncio() {
-        return anuncio;
+    public List<Anuncio> getAnuncios() {
+        return anuncios;
     }
 
-    public void setAnuncio(List<Anuncio> anuncio) {
-        this.anuncio = anuncio;
+    public void setAnuncios(List<Anuncio> anuncios) {
+        this.anuncios = anuncios;
     }
 
     public UUID getId() {
@@ -40,5 +39,4 @@ public class Carrinho{
     public void setId(UUID id) {
         this.id = id;
     }
-
 }

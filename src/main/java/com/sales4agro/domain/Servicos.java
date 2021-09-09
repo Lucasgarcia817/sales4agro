@@ -2,6 +2,7 @@ package com.sales4agro.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +26,10 @@ public class Servicos implements Serializable {
 
     @Column(name = "tipo_serviço")
     private String tipoServico;
+
+    @OneToMany
+    @JoinColumn(name = "servico_id")
+    private List<Anuncio> anuncios;
 
     public Servicos(String descricao, String video, String imagem, String preco, String tipoServico) {
         this.descricao = descricao;

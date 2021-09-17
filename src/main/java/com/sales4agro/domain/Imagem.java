@@ -18,11 +18,6 @@ public class Imagem {
 
     }
 
-    public Imagem(UUID id, Blob imagem) {
-        this.id = id;
-        this.imagem = imagem;
-    }
-
     public UUID getId() {
         return id;
     }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Produto")
+@Table(name = "produto")
 public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,20 +18,22 @@ public class Produto implements Serializable {
     @Column(name = "unidade")
     private String unidade;
 
-    @Column(name = "descrição")
+    @Column(name = "descricao")
     private String descricao;
 
     @Column(name = "tipo_produto")
     private String tipoProduto;
 
-    @Column(name = "vídeo")
-    private String video;
-
-    @Column(name = "imagem")
-    private String imagem;
-
-    @Column(name = "preço")
+    @Column(name = "preco")
     private String preco;
+
+    @OneToMany
+    @JoinColumn(name = "video_id")
+    private List<Video> videos;
+
+    @OneToMany
+    @JoinColumn(name = "imagem_id")
+    private List<Imagem> imagens;
 
     @OneToMany
     @JoinColumn(name = "produto_id")
@@ -40,15 +42,12 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(UUID id, Integer quantidade, String unidade, String descricao, String tipoProduto, String video, String imagem, String preco) {
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
         this.id = id;
-        this.quantidade = quantidade;
-        this.unidade = unidade;
-        this.descricao = descricao;
-        this.tipoProduto = tipoProduto;
-        this.video = video;
-        this.imagem = imagem;
-        this.preco = preco;
     }
 
     public Integer getQuantidade() {
@@ -83,20 +82,20 @@ public class Produto implements Serializable {
         this.tipoProduto = tipoProduto;
     }
 
-    public String getVideo() {
-        return video;
+    public List<Video> getVideos() {
+        return videos;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 
-    public String getImagem() {
-        return imagem;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 
     public String getPreco() {
@@ -107,11 +106,11 @@ public class Produto implements Serializable {
         this.preco = preco;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public List<Anuncio> getAnuncios() {
+        return anuncios;
     }
 
-    public UUID getId() {
-        return id;
+    public void setAnuncios(List<Anuncio> anuncios) {
+        this.anuncios = anuncios;
     }
 }

@@ -16,11 +16,6 @@ public class FormaPagamento{
 
     }
 
-    public FormaPagamento(Integer id, Integer formaPagamento) {
-        this.id = id;
-        this.formaPagamento = formaPagamento;
-    }
-
     public Integer getId() {
         return id;
     }

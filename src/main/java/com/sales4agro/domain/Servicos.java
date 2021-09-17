@@ -6,16 +6,16 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name="Servicos")
+@Table(name="servicos")
 public class Servicos implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(name = "descrição")
+    @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "vídeo")
+    @Column(name = "video")
     private String video;
 
     @Column(name = "imagem")
@@ -24,25 +24,16 @@ public class Servicos implements Serializable {
     @Column(name = "preço")
     private String preco;
 
-    @Column(name = "tipo_serviço")
+    @Column(name = "tipo_servico")
     private String tipoServico;
 
     @OneToMany
     @JoinColumn(name = "servico_id")
     private List<Anuncio> anuncios;
 
-    public Servicos(String descricao, String video, String imagem, String preco, String tipoServico) {
-        this.descricao = descricao;
-        this.video = video;
-        this.imagem = imagem;
-        this.preco = preco;
-        this.tipoServico = tipoServico;
-    }
-
     public Servicos() {
 
     }
-
 
     public String getDescricao() {
         return descricao;

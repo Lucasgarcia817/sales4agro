@@ -18,11 +18,6 @@ public class Video {
 
     }
 
-    public Video(UUID id, Blob video) {
-        this.id = id;
-        this.video = video;
-    }
-
     public UUID getId() {
         return id;
     }

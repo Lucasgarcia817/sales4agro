@@ -18,6 +18,12 @@ public class Cliente implements Serializable{
     @Column(name = "nome_fantasia")
     private String nomeFantasia;
 
+    @Column(name = "cpf")
+    private String cpf;
+
+    @Column(name = "cnpj")
+    private String cnpj;
+
     @Column(name = "ativo")
     private Boolean ativo;
 
@@ -36,6 +42,22 @@ public class Cliente implements Serializable{
 
     public Cliente(){
 
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public UUID getId() {

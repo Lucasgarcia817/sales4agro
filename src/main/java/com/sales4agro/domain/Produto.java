@@ -28,11 +28,11 @@ public class Produto implements Serializable {
     private String preco;
 
     @OneToMany
-    @JoinColumn(name = "video_id")
+    @JoinColumn(name = "produto_id")
     private List<Video> videos;
 
     @OneToMany
-    @JoinColumn(name = "imagem_id")
+    @JoinColumn(name = "produto_id")
     private List<Imagem> imagens;
 
     @OneToMany

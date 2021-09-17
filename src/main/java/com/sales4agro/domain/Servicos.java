@@ -15,17 +15,8 @@ public class Servicos implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "video")
-    private String video;
-
-    @Column(name = "imagem")
-    private String imagem;
-
     @Column(name = "preço")
     private String preco;
-
-    @Column(name = "tipo_servico")
-    private String tipoServico;
 
     @OneToMany
     @JoinColumn(name = "servico_id")
@@ -43,36 +34,12 @@ public class Servicos implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getVideo() {
-        return video;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
-    }
-
     public String getPreco() {
         return preco;
     }
 
     public void setPreco(String preco) {
         this.preco = preco;
-    }
-
-    public String getTipoServico() {
-        return tipoServico;
-    }
-
-    public void setTipoServico(String tipoServico) {
-        this.tipoServico = tipoServico;
     }
 
     public void setId(UUID id) {

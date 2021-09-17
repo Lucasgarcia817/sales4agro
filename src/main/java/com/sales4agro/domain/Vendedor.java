@@ -12,6 +12,12 @@ public class Vendedor implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    @Column(name = "cpf")
+    private String cpf;
+
+    @Column(name = "cnpj")
+    private String cnpj;
+
     @Column(name = "nome_social")
     private String nomeSocial;
 
@@ -27,20 +33,30 @@ public class Vendedor implements Serializable{
     @Column(name = "data_nascimento")
     private Date dataNascimento;
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "número_telefone_fixo")
     private String numeroFixo;
 
     @Column(name = "número_telefone_celular")
     private String numeroCelular;
 
-    @Column(name = "senha")
-    private String senha;
-
     public Vendedor(){
 
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public UUID getId() {
@@ -91,14 +107,6 @@ public class Vendedor implements Serializable{
         this.dataNascimento = dataNascimento;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getNumeroFixo() {
         return numeroFixo;
     }
@@ -113,13 +121,5 @@ public class Vendedor implements Serializable{
 
     public void setNumeroCelular(String numeroCelular) {
         this.numeroCelular = numeroCelular;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 }

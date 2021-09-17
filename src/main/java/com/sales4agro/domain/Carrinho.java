@@ -8,6 +8,7 @@ import java.util.UUID;
 @Table(name = "carrinho")
 public class Carrinho{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private UUID id;
 
@@ -15,13 +16,19 @@ public class Carrinho{
     @JoinColumn(name = "carrinho_id")
     private List<Anuncio> anuncios;
 
+    @Column(name = "frete")
+    private String frete;
+
     public Carrinho(){
 
     }
 
-    public Carrinho(UUID id, List<Anuncio> anuncio) {
-        this.id = id;
-        this.anuncios = anuncio;
+    public String getFrete() {
+        return frete;
+    }
+
+    public void setFrete(String frete) {
+        this.frete = frete;
     }
 
     public List<Anuncio> getAnuncios() {

@@ -32,15 +32,6 @@ public class Anuncio implements Serializable {
 
     }
 
-    public Anuncio(UUID anuncio_id, String titulo, String email, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data) {
-        this.anuncio_id = anuncio_id;
-        this.titulo = titulo;
-        this.email = email;
-        this.numeroTelefoneFixo = numeroTelefoneFixo;
-        this.numeroTelefoneCelular = numeroTelefoneCelular;
-        this.data = data;
-    }
-
     public String getTitulo() {
         return titulo;
     }

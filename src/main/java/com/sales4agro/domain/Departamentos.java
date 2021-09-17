@@ -1,31 +1,28 @@
 package com.sales4agro.domain;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name="Departamentos")
 public class Departamentos {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer departamentoId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID departamentoId;
 
     @Column(name = "nome")
     private String nome;
 
-    public Departamentos(int departamentoId, String nome) {
-        this.departamentoId = departamentoId;
-        this.nome = nome;
-    }
+    @OneToMany
+    @JoinColumn(name = "departamento_id")
+    private List<Produto> produtos;
 
-    public Departamentos() {
-
-    }
-
-    public int getDepartamentoId() {
+    public UUID getDepartamentoId() {
         return departamentoId;
     }
 
-    public void setDepartamentoId(Integer departamentoId) {
+    public void setDepartamentoId(UUID departamentoId) {
         this.departamentoId = departamentoId;
     }
 

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/usuario")
 public class UsuarioController {
-
     private final UsuarioService usuarioService;
 
     public UsuarioController(UsuarioService usuarioService) {
@@ -18,7 +17,7 @@ public class UsuarioController {
 
     @GetMapping("/teste")
     public ResponseEntity<?> teste(){
-        var users = usuarioService.findAllUsuarios();
+        var users = usuarioService.findAll();
         return ResponseEntity.ok(users);
     }
 }

@@ -19,8 +19,28 @@ public class Anuncio implements Serializable {
     @Column(name="data")
     private Date data;
 
+    @OneToOne
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
+
     public Anuncio() {
 
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public String getTitulo() {

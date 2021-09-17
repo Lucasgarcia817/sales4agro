@@ -10,6 +10,7 @@ import java.util.UUID;
 public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false)
     private UUID id;
 
     @Column(name = "quantidade")
@@ -21,10 +22,7 @@ public class Produto implements Serializable {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "tipo_produto")
-    private String tipoProduto;
-
-    @Column(name = "preco")
+    @Column(name = "preco", nullable = false)
     private String preco;
 
     @OneToMany
@@ -34,10 +32,6 @@ public class Produto implements Serializable {
     @OneToMany
     @JoinColumn(name = "produto_id")
     private List<Imagem> imagens;
-
-    @OneToMany
-    @JoinColumn(name = "produto_id")
-    private List<Anuncio> anuncios;
 
     public Produto() {
     }
@@ -74,14 +68,6 @@ public class Produto implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getTipoProduto() {
-        return tipoProduto;
-    }
-
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
     public List<Video> getVideos() {
         return videos;
     }
@@ -106,11 +92,11 @@ public class Produto implements Serializable {
         this.preco = preco;
     }
 
-    public List<Anuncio> getAnuncios() {
-        return anuncios;
-    }
+    public Produto update(Produto produto){
+        this.setDescricao(produto.getDescricao());
+        this.setPreco(produto.getPreco());
+        this.setQuantidade(produto.getQuantidade());
 
-    public void setAnuncios(List<Anuncio> anuncios) {
-        this.anuncios = anuncios;
+        return this;
     }
 }

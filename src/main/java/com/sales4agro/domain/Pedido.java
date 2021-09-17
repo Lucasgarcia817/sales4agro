@@ -24,6 +24,9 @@ public class Pedido {
     @JoinColumn(name = "carrinho_id")
     private Carrinho carrinho;
 
+    @Column(name = "status")
+    private String status;
+
     public Pedido(){
 
     }

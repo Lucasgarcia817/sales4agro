@@ -37,4 +37,10 @@ public class ProdutoService {
 
         return save(produtoRecuperado);
     }
+
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public void delete(Produto produto) {
+        produtoRepository.delete(produtoRepository.findById(produto.getId())
+                .orElseThrow(() -> new ExpressionException("Não é possivel deletar um produto inexistente!")));
+    }
 }

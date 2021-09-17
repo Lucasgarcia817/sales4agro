@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/produtos")
+@RequestMapping(value = "/usuario")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -16,8 +16,8 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("/")
-    public ResponseEntity<?>  oi(){
+    @GetMapping("/teste")
+    public ResponseEntity<?> teste(){
         var users = usuarioService.findAllUsuarios();
         return ResponseEntity.ok(users);
     }

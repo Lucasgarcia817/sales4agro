@@ -1,42 +1,63 @@
 package com.sales4agro.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.security.PublicKey;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Estado")
+@Table(name = "estado")
 public class Estado {
     @Id
-    private Integer codigoIBGE;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Integer id;
 
-    @Column(name = "estado")
-    private String estado;
+    @Column(name = "nome")
+    private String nome;
 
-    public Estado(){
+    @Column(name = "uf")
+    private String uf;
+
+    @Column(name = "ativo")
+    private Boolean ativo;
+
+    @OneToMany
+    @JoinColumn(name = "estado_id")
+    private List<Cidade> cidades;
+
+    public Estado() {
 
     }
 
-    public Estado(Integer codigoIBGE, String estado) {
-        this.codigoIBGE = codigoIBGE;
-        this.estado = estado;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getCodigoIBGE() {
-        return codigoIBGE;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setCodigoIBGE(Integer codigoIBGE) {
-        this.codigoIBGE = codigoIBGE;
+    public String getNome() {
+        return nome;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public String getUf() {
+        return uf;
     }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
 }

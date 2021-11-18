@@ -2,7 +2,6 @@ package com.sales4agro.domain;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "Pedido")
@@ -17,27 +16,35 @@ public class Pedido {
     @Column(name = "valorTotal")
     private String valorTotal;
 
-    @Column(name = "frete")
-    private String frete;
+    @OneToOne
+    @JoinColumn(name = "forma_pagamento_id")
+    private FormaPagamento formaPagamentoId;
 
-    private UUID vendedorId;
+    @OneToOne
+    @JoinColumn(name = "carrinho_id")
+    private Carrinho carrinho;
 
-    private UUID clienteId;
-
-    private UUID formaPagamentoId;
+    @Column(name = "status")
+    private String status;
 
     public Pedido(){
 
     }
 
-    public Pedido(Integer id, Date dataPedido, String valorTotal, String frete, UUID vendedorId, UUID clienteId, UUID formaPagamentoId) {
-        this.id = id;
-        this.dataPedido = dataPedido;
-        this.valorTotal = valorTotal;
-        this.frete = frete;
-        this.vendedorId = vendedorId;
-        this.clienteId = clienteId;
+    public FormaPagamento getFormaPagamentoId() {
+        return formaPagamentoId;
+    }
+
+    public void setFormaPagamentoId(FormaPagamento formaPagamentoId) {
         this.formaPagamentoId = formaPagamentoId;
+    }
+
+    public Carrinho getCarrinho() {
+        return carrinho;
+    }
+
+    public void setCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
     }
 
     public Integer getId() {
@@ -62,37 +69,5 @@ public class Pedido {
 
     public void setValorTotal(String valorTotal) {
         this.valorTotal = valorTotal;
-    }
-
-    public String getFrete() {
-        return frete;
-    }
-
-    public void setFrete(String frete) {
-        this.frete = frete;
-    }
-
-    public UUID getVendedorId() {
-        return vendedorId;
-    }
-
-    public void setVendedorId(UUID vendedorId) {
-        this.vendedorId = vendedorId;
-    }
-
-    public UUID getClienteId() {
-        return clienteId;
-    }
-
-    public void setClienteId(UUID clienteId) {
-        this.clienteId = clienteId;
-    }
-
-    public UUID getFormaPagamentoId() {
-        return formaPagamentoId;
-    }
-
-    public void setFormaPagamentoId(UUID formaPagamentoId) {
-        this.formaPagamentoId = formaPagamentoId;
     }
 }

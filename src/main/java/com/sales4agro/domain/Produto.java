@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Produto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private int id;
 
     @Column(name = "quantidade")
     private Integer quantidade;
@@ -40,7 +40,7 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(UUID id, Integer quantidade, String unidade, String descricao, String tipoProduto, String video, String imagem, String preco) {
+    public Produto(int id, Integer quantidade, String unidade, String descricao, String tipoProduto, String video, String imagem, String preco) {
         this.id = id;
         this.quantidade = quantidade;
         this.unidade = unidade;
@@ -107,11 +107,11 @@ public class Produto implements Serializable {
         this.preco = preco;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 }

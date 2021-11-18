@@ -11,7 +11,7 @@ public class Anuncio implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private UUID anuncio_id;
+    private UUID id;
 
     @Column(name="título")
     private String titulo;
@@ -32,14 +32,16 @@ public class Anuncio implements Serializable {
 
     }
 
-    public Anuncio(UUID anuncio_id, String titulo, String email, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data) {
-        this.anuncio_id = anuncio_id;
+    public Anuncio(UUID id, String titulo, String email, String numeroTelefoneFixo, String numeroTelefoneCelular, Date data) {
+        this.id = id;
         this.titulo = titulo;
         this.email = email;
         this.numeroTelefoneFixo = numeroTelefoneFixo;
         this.numeroTelefoneCelular = numeroTelefoneCelular;
         this.data = data;
     }
+
+
 
     public String getTitulo() {
         return titulo;
@@ -81,11 +83,11 @@ public class Anuncio implements Serializable {
         this.data = data;
     }
 
-    public void setAnuncio_id(UUID anuncio_id) {
-        this.anuncio_id = anuncio_id;
+    public void setId(UUID anuncio_id) {
+        this.id = id;
     }
 
-    public UUID getAnuncio_id() {
-        return anuncio_id;
+    public UUID getId() {
+        return id;
     }
 }
